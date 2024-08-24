@@ -31,7 +31,7 @@ echo -e "time0ut - install_docker.sh"
 echo
 internet_status
 echo
-install_docker
+# install_docker
 echo
 install_dockercompose
 echo

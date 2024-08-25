@@ -23,7 +23,7 @@ function install_docker() {
 
 function install_dockercompose() {
     echo "[*] Installing docker compose..."
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose || error_message "[-] Failed to install docker compose..."
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose || error_message "[-] Failed to download docker compose..."
     sudo chmod +x /usr/local/bin/docker-compose || error_message "[-] Failed to +x /usr/local/bin/docker-compose..."
 }
 

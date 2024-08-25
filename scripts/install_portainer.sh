@@ -16,8 +16,10 @@ function internet_status() {
 }
 
 function install_portainer() {
-    sudo docker pull portainer/portainer-ce:latest || error "[-] Failed to pull Portainer docker image!"
-    sudo docker run -d -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest || error_message "[-] Failed to create Portainer docker!"
+    echo "[*] Pulling Portainer Docker image..."
+    sudo docker pull portainer/portainer-ce:latest || error_message "[-] Failed to pull Portainer docker image!"
+    echo "[*] Running Portainer container..."
+    sudo docker run -d -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest || error_message "[-] Failed to create Portainer docker container!"
 }
 
 echo -e "time0ut - install_portainer.sh"

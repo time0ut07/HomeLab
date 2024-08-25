@@ -17,7 +17,7 @@ function internet_status() {
 
 function create_filebrowser() {
   echo "[*] Creating directories..."
-  sudo mkdir -p /home/$USER/filebrowser || error_message "[-] Failed to create filebrowser folder!"
+  sudo mkdir -p /home/$USER/docker/filebrowser || error_message "[-] Failed to create filebrowser folder!"
   
   echo "[*] Downloading filebrowser container..."
   docker pull filebrowser/filebrowser:latest
@@ -26,14 +26,15 @@ function create_filebrowser() {
       --name filebrowser \
       --restart unless-stopped \
       -v /home/$USER:/srv \
-      -v /home/$USER/filebrowser/filebrowser.db:/database/filebrowser.db \
-      -v /home/$USER/filebrowser/settings.json:/config/settings.json \
+      -v /home/$USER/docker/filebrowser/filebrowser.db:/database/filebrowser.db \
+      -v /home/$USER/docker/filebrowser/settings.json:/config/settings.json \
       -e PUID=$(id -u) \
       -e PGID=$(id -g) \
       -p 8001:80 \
       filebrowser/filebrowser:latest
 }
 
+echo -e "time0ut - install filebrowser.sh"
 internet_status
 create_filebrowser
 echo "[+] Successfully create a filebrowser docker container!"

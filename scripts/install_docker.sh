@@ -17,13 +17,13 @@ function internet_status() {
 
 function install_docker() {
     echo "[*] Installing docker..."
-    curl -sSL https://get.docker.com | sh || error_message "[-] Failed to install docker..."
+    curl -sSL https://get.docker.com | bash || error_message "[-] Failed to install docker..."
     sudo usermod -aG docker $USER || error_message "[-] Failed to add user into Docker user group..."
 }
 
 function install_dockercompose() {
     echo "[*] Installing docker compose..."
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose | sh || error_message "[-] Failed to install docker compose..."
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose || error_message "[-] Failed to install docker compose..."
     sudo chmod +x /usr/local/bin/docker-compose || error_message "[-] Failed to +x /usr/local/bin/docker-compose..."
 }
 

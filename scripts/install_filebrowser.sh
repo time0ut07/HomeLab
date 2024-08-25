@@ -30,7 +30,7 @@ function create_filebrowser() {
       -v /home/$USER/filebrowser/settings.json:/config/settings.json \
       -e PUID=$(id -u) \
       -e PGID=$(id -g) \
-      -p 8123:80 \
+      -p 8001:80 \
       filebrowser/filebrowser:latest
 }
 

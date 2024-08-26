@@ -27,4 +27,5 @@ echo
 internet_status
 echo
 install_portainer
+echo
 echo "Visit me @ http://localhost:9000 or https://localhost:9443"

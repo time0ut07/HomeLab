@@ -38,3 +38,4 @@ echo -e "time0ut - install filebrowser.sh"
 internet_status
 create_filebrowser
 echo "[+] Successfully create a filebrowser docker container!"
+echo "Visit me @ http://localhost:8001"

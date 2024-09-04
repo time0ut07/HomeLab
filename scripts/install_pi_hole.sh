@@ -28,7 +28,7 @@ function create_pi_hole() {
       -v "/home/$USER/docker/pi_hole/etc-dnsmasq.d:/etc/dnsmasq.d" \
       -e VIRTUAL_HOST="pi.hole" \
       -e PROXY_LOCATION="pi.hole" \
-      -e FTLCONF_LOCAL_IPV4="127.0.0.1" \
+      -e FTLCONF_LOCAL_IPV4="localhost" \
       --dns=127.0.0.1 --dns=1.1.1.1 \
       --hostname pi.hole \
       -p 53:53/tcp -p 53:53/udp \

@@ -29,6 +29,7 @@ function create_pi_hole() {
       -e VIRTUAL_HOST="pi.hole" \
       -e PROXY_LOCATION="pi.hole" \
       -e FTLCONF_LOCAL_IPV4="localhost" \
+      -e FTLCONF_webserver_api_password="time0ut" \
       --dns=127.0.0.1 --dns=1.1.1.1 \
       --hostname pi.hole \
       -p 53:53/tcp -p 53:53/udp \

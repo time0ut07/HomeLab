@@ -19,16 +19,16 @@ function create_pi_hole() {
   echo "[*] Creating directories..."
   sudo mkdir -p /home/$USER/docker/pi_hole || error_message "[x] Failed to create pihole folder!"
 
-  echo "[*] Downloading filebrowser container..."
+  echo "[*] Downloading pihole container..."
   docker pull pihole/pihole:latest
 
-  echo "[*] Initialising filebrowser..."
+  echo "[*] Initialising pihole..."
   docker run -d \
       --name pihole \
       --restart=unless-stopped \
       -e TZ="Asia/Kolkata" \
-      -v "/home/$USER/pi_hole/etc-pihole:/etc/pihole" \
-      -v "/home/$USER/pi_hole/etc-dnsmasq.d:/etc/dnsmasq.d" \
+      -v "/home/$USER/docker/pi_hole/etc-pihole:/etc/pihole" \
+      -v "/home/$USER/docker/pi_hole/etc-dnsmasq.d:/etc/dnsmasq.d" \
       -e VIRTUAL_HOST="pi.hole" \
       -e PROXY_LOCATION="pi.hole" \
       -e FTLCONF_LOCAL_IPV4="127.0.0.1" \ # might need to change to external ip
@@ -39,7 +39,7 @@ function create_pi_hole() {
       pihole/pihole:latest
 }
 
-echo -e "time0ut - install pi_hole.sh"
+echo -e "time0ut - install pihole.sh"
 internet_status
 create_pi_hole
 echo "[+] Successfully created a pihole docker container!"
